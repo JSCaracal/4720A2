@@ -33,9 +33,14 @@ print(object.vn)
 print("And finally the vertices")
 print(object.vertices)
 # Todo: Part 3
-print("Max")
-print(object.v.max())
-    
+def extent(o):
+    print("Max Values for each Coord")
+    maxVales = o.max(axis=0)
+    print("X: " + str(maxVales[0]) + " Y: " + str(maxVales[1]) + " Z: "+str(maxVales[2]))
+    print("Min Values for each Coord")
+    minVales = o.min(axis=0)
+    print("X: " + str(minVales[0]) + " Y: " + str(minVales[1]) + " Z: "+str(minVales[2]))
+extent(object.v)
 # Todo: Part 4
 
 
