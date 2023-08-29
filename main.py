@@ -2,7 +2,7 @@
 import pygame as pg
 from OpenGL.GL import *
 import numpy as np
-
+from objLoaderV1 import ObjLoader
 # Initialize pygame
 pg.init()
 
@@ -18,11 +18,19 @@ pg.display.set_mode((width, height), pg.OPENGL | pg.DOUBLEBUF)
 # Todo: Part 1
 # Set the background color (clear color)
 # glClearColor takes 4 arguments: red, green, blue, alpha. Each argument is a float between 0 and 1.
-glClearColor(0.3, 0.4, 0.5, 1.0)
+glClearColor(1.0, 0.0, 0.0, 1.0)
 
 
 # Todo: Part 2
-
+object = ObjLoader(".\\objects\\raymanModel.obj")
+print("The position Coords for the Object:")
+print(object.v)
+print("The texture coords for the object:")
+print(object.vt)
+print("The normals for the object:")
+print(object.vn)
+print("And finally the vertices")
+print(object.vertices)
 # Todo: Part 3
 
 # Todo: Part 4
