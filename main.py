@@ -4,6 +4,7 @@ from OpenGL.GL import *
 import numpy as np
 from objLoaderV1 import ObjLoader
 # Initialize pygame
+'''
 pg.init()
 
 # Set up OpenGL context version
@@ -19,7 +20,7 @@ pg.display.set_mode((width, height), pg.OPENGL | pg.DOUBLEBUF)
 # Set the background color (clear color)
 # glClearColor takes 4 arguments: red, green, blue, alpha. Each argument is a float between 0 and 1.
 glClearColor(1.0, 0.0, 0.0, 1.0)
-
+'''
 
 # Todo: Part 2
 object = ObjLoader(".\\objects\\raymanModel.obj")
@@ -32,12 +33,14 @@ print(object.vn)
 print("And finally the vertices")
 print(object.vertices)
 # Todo: Part 3
-
+print("Max")
+print(object.v.max())
+    
 # Todo: Part 4
 
 
 # Run a loop to keep the program running
-draw = True
+draw = False
 while draw:
     for event in pg.event.get():
         if event.type == pg.QUIT:
