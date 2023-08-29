@@ -25,13 +25,13 @@ glClearColor(1.0, 0.0, 0.0, 1.0)
 # Todo: Part 2
 object = ObjLoader(".\\objects\\raymanModel.obj")
 print("The position Coords for the Object:")
-print(object.v)
+print(object.v.shape)
 print("The texture coords for the object:")
-print(object.vt)
+print(object.vt.shape)
 print("The normals for the object:")
-print(object.vn)
+print(object.vn.shape)
 print("And finally the vertices")
-print(object.vertices)
+print(object.vertices.shape)
 # Todo: Part 3
 def extent(o):
     print("Max Values for each Coord")
@@ -40,7 +40,12 @@ def extent(o):
     print("Min Values for each Coord")
     minVales = o.min(axis=0)
     print("X: " + str(minVales[0]) + " Y: " + str(minVales[1]) + " Z: "+str(minVales[2]))
+    
+    
+    
+    
 extent(object.v)
+print(np.average(object.vn,axis=0))
 # Todo: Part 4
 
 
