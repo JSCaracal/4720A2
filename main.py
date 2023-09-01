@@ -4,7 +4,6 @@ from OpenGL.GL import *
 import numpy as np
 from objLoaderV1 import ObjLoader
 # Initialize pygame
-'''
 pg.init()
 
 # Set up OpenGL context version
@@ -20,7 +19,6 @@ pg.display.set_mode((width, height), pg.OPENGL | pg.DOUBLEBUF)
 # Set the background color (clear color)
 # glClearColor takes 4 arguments: red, green, blue, alpha. Each argument is a float between 0 and 1.
 glClearColor(1.0, 0.0, 0.0, 1.0)
-'''
 
 # Todo: Part 2
 object = ObjLoader(".\\objects\\raymanModel.obj")
@@ -41,15 +39,20 @@ def extent(o):
     minVales = o.min(axis=0)
     print("X: " + str(minVales[0]) + " Y: " + str(minVales[1]) + " Z: "+str(minVales[2]))
     centerVals = np.array([FindMidPoint(maxVales[0],minVales[0]),FindMidPoint(maxVales[1],minVales[1]),FindMidPoint(maxVales[2],minVales[2])])
-    print(centerVals)
+    print("Center coordinantes")
+    print("X: " + str(centerVals[0]) + " Y: " + str(centerVals[1]) + " Z: "+str(centerVals[2]))
+    x1 = centerVals[0]
+    y1 = centerVals[1]
+    z1 = centerVals[2]
     
+    x2 = maxVales[0]
+    y2 = maxVales[1]
+    z2 = maxVales[2]
     
-    distance = np.subtract(maxVales,centerVals)
-    distance = np.power(2,distance)
-    val = distance.sum()
-    distance = np.sqrt(val)
-    print(distance)
-    
+    dis = np.sqrt(((x2-x1)**2)+((y2-y1)**2)+((z2-z1)**2))
+    print("Diameter")
+    print(dis*2)
+     
     
 def FindMidPoint(min,max):
     return ((min+max)/2)
@@ -62,7 +65,7 @@ extent(object.v)
 
 
 # Run a loop to keep the program running
-draw = False
+draw = True
 while draw:
     for event in pg.event.get():
         if event.type == pg.QUIT:
