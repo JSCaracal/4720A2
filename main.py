@@ -40,12 +40,24 @@ def extent(o):
     print("Min Values for each Coord")
     minVales = o.min(axis=0)
     print("X: " + str(minVales[0]) + " Y: " + str(minVales[1]) + " Z: "+str(minVales[2]))
+    centerVals = np.array([FindMidPoint(maxVales[0],minVales[0]),FindMidPoint(maxVales[1],minVales[1]),FindMidPoint(maxVales[2],minVales[2])])
+    print(centerVals)
     
     
+    distance = np.subtract(maxVales,centerVals)
+    distance = np.power(2,distance)
+    val = distance.sum()
+    distance = np.sqrt(val)
+    print(distance)
+    
+    
+def FindMidPoint(min,max):
+    return ((min+max)/2)
+
     
     
 extent(object.v)
-print(np.average(object.vn,axis=0))
+
 # Todo: Part 4
 
 
