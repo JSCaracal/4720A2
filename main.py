@@ -1,3 +1,8 @@
+'''
+Joshua Sipos
+CAP4720
+'''
+
 # Import necessary libraries
 import pygame as pg
 from OpenGL.GL import *
@@ -5,7 +10,6 @@ import numpy as np
 from objLoaderV1 import ObjLoader
 # Initialize pygame
 pg.init()
-
 # Set up OpenGL context version
 pg.display.gl_set_attribute(pg.GL_CONTEXT_MAJOR_VERSION, 3)
 pg.display.gl_set_attribute(pg.GL_CONTEXT_MINOR_VERSION, 3)
@@ -62,7 +66,12 @@ def FindMidPoint(min,max):
 extent(object.v)
 
 # Todo: Part 4
-
+vbo = glGenBuffers(1)
+glBindBuffer(GL_ARRAY_BUFFER,vbo)
+glBufferData(GL_ARRAY_BUFFER,
+             size = object.vertices.nbytes,
+             data = object.vertices,
+             usage = GL_STATIC_DRAW)
 
 # Run a loop to keep the program running
 draw = True
